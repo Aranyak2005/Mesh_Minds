@@ -29,7 +29,7 @@ export default function Home() {
 
             <p className="mt-8 text-gray-300 text-base sm:text-lg leading-relaxed max-w-3xl">
               Redistribute books, clothes, and essential resources, reduce
-              environmental waste, track carbon footprint, and empower
+              environmental waste and empower
               communities through intelligent sustainability.
             </p>
 

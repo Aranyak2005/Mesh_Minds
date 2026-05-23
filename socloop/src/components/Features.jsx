@@ -1,62 +1,75 @@
-import { BookOpen, Recycle, Leaf, BarChart3 } from "lucide-react";
+import { BookOpen, Recycle } from "lucide-react";
 
 const features = [
   {
     title: "Smart Redistribution",
     description:
-      "Donate books, clothes, school supplies, and useful items to people who need them.",
+      "Donate books, clothes, school supplies, and useful items to people who need them most.",
     icon: BookOpen,
+    tag: "Community Sharing",
   },
   {
     title: "Circular Reuse",
     description:
-      "Reduce waste by giving unused resources a second life inside your community.",
+      "Give unused resources a second life and reduce unnecessary waste inside your community.",
     icon: Recycle,
-  },
-  {
-    title: "Carbon Footprint AI",
-    description:
-      "Track lifestyle habits and get AI-powered suggestions to reduce emissions.",
-    icon: Leaf,
-  },
-  {
-    title: "Smart City Insights",
-    description:
-      "Help city planners understand resource needs and sustainability gaps.",
-    icon: BarChart3,
+    tag: "Sustainable Impact",
   },
 ];
 
 export default function Features() {
   return (
-    <section className="px-4 sm:px-6 py-20 bg-[#2D142C]">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
+    <section className="relative px-4 sm:px-6 py-24 bg-[#2D142C] overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[420px] h-[420px] bg-[#801336]/30 blur-[130px] rounded-full"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Heading */}
+        <div className="text-center mb-16">
           <p className="text-[#FE4540] uppercase tracking-[0.3em] text-sm mb-4">
             Core Platform
           </p>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-            One Platform, Multiple SDG Impacts
+            Reuse Resources. Empower Communities.
           </h2>
+
+          <p className="mt-5 text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            SocLoop connects unused resources with people who need them,
+            creating a smarter and more sustainable sharing ecosystem.
+          </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
               <div
                 key={index}
-                className="bg-[#510A32]/70 border border-white/10 rounded-2xl p-6 backdrop-blur-lg hover:border-[#FE4540]/60 transition"
+                className="group relative overflow-hidden bg-[#510A32]/70 border border-white/10 rounded-[2rem] p-8 sm:p-10 backdrop-blur-xl hover:border-[#FE4540]/60 transition duration-300"
               >
-                <div className="w-14 h-14 rounded-2xl bg-[#801336] flex items-center justify-center mb-5">
-                  <Icon className="text-[#FE4540]" size={30} />
+                {/* Glow Effect */}
+                <div className="absolute -right-16 -top-16 w-44 h-44 bg-[#FE4540]/10 rounded-full blur-2xl group-hover:bg-[#FE4540]/20 transition"></div>
+
+                {/* Top */}
+                <div className="flex items-center justify-between mb-10">
+                  <div className="w-16 h-16 rounded-2xl bg-[#801336] flex items-center justify-center group-hover:scale-110 transition">
+                    <Icon className="text-[#FE4540]" size={34} />
+                  </div>
+
+                  <span className="text-xs uppercase tracking-widest text-[#FE4540] bg-[#2D142C]/70 border border-white/10 rounded-full px-4 py-2">
+                    {feature.tag}
+                  </span>
                 </div>
 
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                {/* Content */}
+                <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+                  {feature.title}
+                </h3>
 
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
