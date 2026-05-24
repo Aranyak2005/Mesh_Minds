@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import { Search, MapPin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const items = [
   {
@@ -37,6 +38,8 @@ const items = [
 ];
 
 export default function Browse() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-[#2D142C] text-white">
       <Navbar />
@@ -127,8 +130,11 @@ export default function Browse() {
                     {item.location}
                   </div>
 
-                  <button className="mt-6 w-full bg-[#FE4540] hover:bg-[#C72C41] transition py-3 rounded-xl font-medium shadow-lg shadow-[#FE4540]/20">
-                    Request Item
+                  <button
+                    onClick={() => navigate(`/item/${item.id}`)}
+                    className="mt-6 w-full bg-[#FE4540] hover:bg-[#C72C41] transition py-3 rounded-xl font-medium shadow-lg shadow-[#FE4540]/20"
+                  >
+                    View Details
                   </button>
                 </div>
               </div>
